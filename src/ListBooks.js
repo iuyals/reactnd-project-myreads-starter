@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import React from 'react'
 import Book from './Book'
@@ -14,11 +14,20 @@ class ListBooks extends React.Component {
                     <h1>MyReads</h1>
                 </div>
                 <div className="list-books-content">
-                    <BookShelf title="Current Reading" books={books.filter(b => b.shelf === 'reading')} />
-                    <BookShelf title="Want read" books={books.filter(b => b.shelf === 'want')} />
-                    <BookShelf title="read" books={books.filter(b => b.shelf === 'read')} />
+                    <BookShelf title="Current Reading"
+                        books={books.filter(b => b.shelf === 'currentlyReading')}
+                        moveTo={this.props.moveTo}
+                    />
+                    <BookShelf title="Want read"
+                        books={books.filter(b => b.shelf === 'wantToRead')}
+                        moveTo={this.props.moveTo}
+                    />
+                    <BookShelf title="read"
+                        books={books.filter(b => b.shelf === 'read')}
+                        moveTo={this.props.moveTo}
+                    />
                 </div>
-                <SearchButton/>
+                <SearchButton />
             </div>
         )
     }
@@ -40,7 +49,7 @@ class BookShelf extends React.Component {
                     <ol className="books-grid">
                         {books.map(b => {
                             return (
-                                <li key={b.id}><Book book={b} /></li>
+                                <li key={b.id}><Book book={b} moveTo={this.props.moveTo} /></li>
                             )
                         })}
                     </ol>

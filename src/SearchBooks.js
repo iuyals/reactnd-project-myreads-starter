@@ -12,8 +12,8 @@ export default class SearchBooks extends React.Component {
     render() {
         return (
             <div className="search-books">
-                <SearchBooksBar />
-                <SearchBooksResults books={this.props.books} />
+                <SearchBooksBar search={this.props.search}/>
+                <SearchBooksResults books={this.props.books} moveTo={this.props.moveTo} />
             </div>
         )
 
@@ -37,7 +37,10 @@ class SearchBooksBar extends React.Component {
                   However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
                   you don't find a specific author or title. Every search is limited by search terms.
                 */}
-                    <input type="text" placeholder="Search by title or author" />
+                    <input type="text" 
+                    placeholder="Search by title or author"
+                    onChange={event=>this.props.search(event.target.value)}
+                    />
 
                 </div>
             </div>
@@ -52,7 +55,7 @@ class SearchBooksResults extends React.Component {
             <div className="search-books-results">
                 <ol className="books-grid">
                     {this.props.books.map(b => {
-                        return <li key={b.id + 'result'}><Book book={b} /></li>
+                        return <li key={b.id + 'result'}><Book book={b} moveTo={this.props.moveTo}/></li>
                     })}
                 </ol>
             </div>
