@@ -14,6 +14,8 @@ user can add new book to shelfs by search then select
 - Open `http://localhost:3000` in your browser
 
 
+# Following is Udacity's instruction
+
 
 # MyReads Project
 
