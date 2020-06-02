@@ -53,7 +53,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log("render ")
     return (
       <div className="app">
         <Route exact path='/' render={() => (
@@ -62,7 +61,7 @@ class App extends React.Component {
             moveTo={(book, shelf) => this.moveTo(book, shelf)}
           />
         )} />
-        <Route exact path='/' render={() => (
+        <Route exact path='/search' render={() => (
           <SearchBooks
             books={this.state.searchResult}
             search={query => this.search(query)}

@@ -1,3 +1,20 @@
+#MyReads project
+
+this is a final project for Udacity react Fundamentals course,it's a book shelf manager,
+
+user can move books btween 3 shelf---'reading' 'want to read' 'read'
+
+user can add new book to shelfs by search then select
+
+## Project Setup
+
+- Clone the project - `git clone    https://github.com/iuyals/reactnd-contacts-app.git`
+- Install the dependencies - `npm install`
+- Start server - `npm start`
+- Open `http://localhost:3000` in your browser
+
+
+
 # MyReads Project
 
 This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.

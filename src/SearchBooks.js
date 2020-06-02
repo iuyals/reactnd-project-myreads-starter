@@ -37,7 +37,7 @@ class SearchBooksBar extends React.Component {
                   However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
                   you don't find a specific author or title. Every search is limited by search terms.
                 */}
-                    <input type="text" 
+                    <input type="text" autoFocus={true}   
                     placeholder="Search by title or author"
                     onChange={event=>this.props.search(event.target.value)}
                     />
@@ -51,10 +51,15 @@ class SearchBooksBar extends React.Component {
 class SearchBooksResults extends React.Component {
 
     render() {
+        //check if books is array,bc search may return a empty object if nothing found
+        let books=this.props.books;
+        if(Array.isArray(books)===false){
+            books=[];
+        }
         return (
             <div className="search-books-results">
                 <ol className="books-grid">
-                    {this.props.books.map(b => {
+                    {books.map(b => {
                         return <li key={b.id + 'result'}><Book book={b} moveTo={this.props.moveTo}/></li>
                     })}
                 </ol>
